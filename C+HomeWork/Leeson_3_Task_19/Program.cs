@@ -1,7 +1,7 @@
 ﻿/* Задача 19: Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 14212 -> нет
 12821 -> да
-23432 -> да */
+23432 -> да 
 
 void Palindrom (string number)
 {
@@ -15,4 +15,4 @@ void Palindrom (string number)
 }
 Console.Write("Введите число: ");
 string N = Console.ReadLine();
-Palindrom(N);
+Palindrom(N);*/
