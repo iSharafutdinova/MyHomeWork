@@ -9,12 +9,12 @@
 2 3 5 9
 2 4 4 8 */
 
-double[,] Create2DArray(int rows, int columns, int min, int max)
+double[,] Create2DArray(int rows, int columns)
 {
     double[,] array = new double[rows, columns];
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < columns; j++)
-            array[i, j] = new Random().Next(min, max + 1);
+            array[i, j] = new Random().Next(1, 10);
     return array;
 }
 
@@ -50,10 +50,12 @@ double[,] SortingMinToMaxInRows(double[,] array)
 }
 
 Console.Write("Введите количество строк: ");
-int m = Convert.ToInt32(Console.ReadLine());
+int rows = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите количество столбцов: ");
-int n = Convert.ToInt32(Console.ReadLine());
-double[,] myArray = Create2DArray(m, n, 1, 9);
+int columns = Convert.ToInt32(Console.ReadLine());
+
+double[,] myArray = Create2DArray(rows, columns);
 Print2DArray(myArray);
 Console.WriteLine();
+
 Print2DArray(SortingMinToMaxInRows(myArray));
