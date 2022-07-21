@@ -25,24 +25,24 @@ void Print2DArray(double[,] array)
     }
 }
 
-int MinSummLine(double[,] array)
+int FindMinSumRow(double[,] array)
 {
     double temp;
-    double temp2 = 0;
+    double current = 0;
     int minline = 0;
-    for (int j = 0; j < array.GetLength(1); j++) //сумма элементов первой строки, отправная точка
-        temp2 += array[0, j];
-    Console.WriteLine(temp2);
-    for (int i = 1; i < array.GetLength(0); i++) //сравнение суммы первой строки с остальными строками и поиск наименьшей
+    for (int j = 0; j < array.GetLength(1); j++) 
+        current += array[0, j];
+    Console.WriteLine(current);
+    for (int i = 1; i < array.GetLength(0); i++) 
     {
         temp = 0;
-        for (int j = 0; j < array.GetLength(1); j++) //вычисление суммы элементов строки
+        for (int j = 0; j < array.GetLength(1); j++) 
             temp += array[i, j];
         Console.WriteLine(temp);
-        if (temp < temp2)
+        if (temp < current)
         {
-            minline = i; //запоминание строки с минимальной суммой
-            temp2 = temp; //запоминание минимального числа для последующего сравнения
+            minline = i; 
+            current = temp; 
         }
     }
     return minline + 1;
@@ -52,8 +52,10 @@ Console.Write("Введите количество строк: ");
 int rows = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите количество столбцов: ");
 int columns = Convert.ToInt32(Console.ReadLine());
+
 double[,] myArray = Create2DArray(rows, columns);
 Print2DArray(myArray);
 Console.WriteLine();
-double result = MinSummLine(myArray);
-Console.WriteLine("Минимальная сумма элементов в строке номер " + result);
+
+double result = FindMinSumRow(myArray);
+Console.WriteLine("Минимальная сумма элементов в строке под номером: " + result);
